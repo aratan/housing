@@ -1,0 +1,94 @@
+Por otro lado, se observa una correlación negativa muy fuerte entre 
+el(TOTAL ROOMS/ POPULATION) y (BEDROOMS/ POPULATION)  (-0.8582 y 0.8043).
+
+Esto tiene sentido, ya que a medida que aumenta la razón de habitaciones
+totales por población, la razón de dormitorios por población debería
+disminuir (y viceversa).
+
+Valores atipicos:
+Hay una gran diferencia entre los valores del INTERCEPT en las dos columnas
+(11.4939 vs 275.7518).
+
+Si se trata de datos del mismo análisis, podría ser un valor atípico que
+ sesgue los resultados. Habría que investigar más a fondo este caso.
+
+ Conocer el significado de las variables como ln(TOTAL ROOMS/ POPULATION) o ln(HOUSEHOLDS) ayudaría a interpretar mejor las correlaciones.
+ Visualizar los datos mediante gráficos como diagramas de dispersión podría ayudar a identificar patrones y valores atípicos de manera más efectiva.
+
+
+ Densidad de población: En áreas con mayor densidad de población, las viviendas pueden ser más pequeñas, con menos habitaciones por persona.
+----------------------
+
+
+Correlación entre (TOTAL ROOMS/ POPULATION) y (BEDROOMS/ POPULATION):
+La fuerte correlación negativa entre estas dos razones tiene sentido. A medida que la proporción de habitaciones totales por población aumenta, es probable que la proporción de dormitorios por población disminuya. Esto podría deberse a que en áreas densamente pobladas, las viviendas tienden a ser más pequeñas, lo que resulta en menos habitaciones por persona.
+Valores atípicos:
+La gran diferencia entre los valores del intercepto (11.4939 vs. 275.7518) podría indicar un valor atípico en los datos. Es importante investigar más a fondo para comprender por qué existe esta discrepancia. Podría ser un caso interesante para explorar y comprender mejor.
+Significado de las variables:
+Conocer el significado de las variables como ln(TOTAL ROOMS/ POPULATION) o ln(HOUSEHOLDS) sería útil para interpretar mejor las correlaciones. Si tienes acceso a la documentación o contexto sobre estas variables, sería beneficioso revisarla.
+Visualización de datos:
+Visualizar los datos mediante gráficos, como diagramas de dispersión, es una excelente idea. Esto podría ayudarte a identificar patrones y valores atípicos de manera más efectiva. Observar cómo se relacionan estas variables en un gráfico puede proporcionar más información sobre su comportamiento.
+En resumen, considerando la densidad de población y las características de las viviendas, podemos entender mejor las correlaciones observadas.
+
+
+¡Claro! Vamos a realizar un Análisis Exploratorio de Datos (EDA) paso a paso para un dataset que contiene información de longitud y latitud. Utilizaremos Python 3 en un entorno Jupyter Notebook. Aquí están los pasos:
+Carga de datos:
+Comienza cargando tus datos en un DataFrame de Pandas. Puedes leer datos desde archivos CSV, Excel, bases de datos, etc. Por ejemplo:
+Python
+
+import pandas as pd
+df = pd.read_csv('tu_archivo.csv')
+Código generado por IA. Revisar y usar cuidadosamente. Más información sobre preguntas frecuentes.
+Exploración inicial:
+Examina las primeras filas del DataFrame para entender la estructura de los datos:
+Python
+
+df.head()
+Código generado por IA. Revisar y usar cuidadosamente. Más información sobre preguntas frecuentes.
+Estadísticas descriptivas:
+Calcula estadísticas básicas para las columnas relevantes (longitud, latitud):
+Python
+
+df[['longitud', 'latitud']].describe()
+Código generado por IA. Revisar y usar cuidadosamente. Más información sobre preguntas frecuentes.
+Visualización de datos:
+Utiliza gráficos para explorar la distribución de los datos:
+Python
+
+import matplotlib.pyplot as plt
+plt.scatter(df['longitud'], df['latitud'])
+plt.xlabel('Longitud')
+plt.ylabel('Latitud')
+plt.title('Distribución de Longitud y Latitud')
+plt.show()
+Código generado por IA. Revisar y usar cuidadosamente. Más información sobre preguntas frecuentes.
+Correlaciones:
+Calcula la matriz de correlación para entender las relaciones entre las variables:
+Python
+
+corr_matrix = df[['longitud', 'latitud']].corr()
+print(corr_matrix)
+Código generado por IA. Revisar y usar cuidadosamente. Más información sobre preguntas frecuentes.
+Normalización:
+Si es necesario, normaliza las variables para que tengan una escala similar. Por ejemplo, puedes usar Min-Max Scaling:
+Python
+
+from sklearn.preprocessing import MinMaxScaler
+scaler = MinMaxScaler()
+df[['longitud', 'latitud']] = scaler.fit_transform(df[['longitud', 'latitud']])
+Código generado por IA. Revisar y usar cuidadosamente. Más información sobre preguntas frecuentes.
+One-Hot Encoding:
+Si tienes otras variables categóricas, como “tipo de ubicación”, puedes aplicar One-Hot Encoding:
+Python
+
+from sklearn.preprocessing import OneHotEncoder
+encoder = OneHotEncoder()
+encoded_features = encoder.fit_transform(df[['tipo_de_ubicacion']]).toarray()
+Código generado por IA. Revisar y usar cuidadosamente. Más información sobre preguntas frecuentes.
+Lidiar con valores faltantes:
+Si hay valores faltantes, decide cómo tratarlos (imputación, eliminación, etc.).
+Análisis adicional:
+Explora más características según tus necesidades específicas.
+Recuerda adaptar estos pasos según las particularidades de tu dataset y los objetivos de tu análisis. ¡Buena suerte con tu EDA
+
+
